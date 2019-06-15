@@ -10,7 +10,7 @@ import reducers from './ducks';
 const sagaMonitor = process.env.NODE_ENV === 'development' ? console.tron.createSagaMonitor() : null;
 
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
-const middlewares = { sagaMiddleware };
+const middlewares = [sagaMiddleware];
 
 const composer = process.env.NODE_ENV === 'development'
   ? compose(
