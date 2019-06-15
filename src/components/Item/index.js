@@ -1,6 +1,10 @@
 import React from 'react';
 
+import '../../config/reactotron';
+
 import { Container, Box } from './styles';
+
+console.tron.log('Testando Reactotron');
 
 const Item = () => (
   <Container>
