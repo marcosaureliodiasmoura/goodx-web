@@ -1,21 +1,22 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import React from 'react';
+import {
+  BrowserRouter, Route, Switch, Redirect,
+} from 'react-router-dom';
 
-import { isAuthenticated } from "./services/auth";
+import { isAuthenticated } from './services/auth';
 
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import App from "./pages/App";
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      isAuthenticated() ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-      )
+    render={props => (isAuthenticated() ? (
+      <Component {...props} />
+    ) : (
+      <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+    ))
     }
   />
 );
@@ -25,11 +26,8 @@ const Routes = () => (
     <Switch>
       <Route exact path="/" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      {/* <PrivateRoute path="/app" component={App} /> */}
-      <PrivateRoute
-        path="/app"
-        component={() => <h1>Vamos criar a nova estrutura</h1>}
-      />
+      <PrivateRoute path="/app" component={Dashboard} />
+      {/* <PrivateRoute path="/app" component={() => <h1>Vamos criar a nova estrutura</h1>} /> */}
 
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
