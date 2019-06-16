@@ -9,7 +9,7 @@ const Sidebar = () => (
     <div>
       <Nav main>
         <li>
-          <a href="/">Goodx</a>
+          <Link to="/">Goodx</Link>
         </li>
 
         <li>

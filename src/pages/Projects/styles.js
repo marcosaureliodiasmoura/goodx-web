@@ -22,10 +22,10 @@ export const Project = styled(Link)`
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  width: 250px;
+  width: 200px;
   text-decoration: none;
   img {
-    height: 250px;
+    height: 200px;
   }
   strong {
     font-size: 13px;

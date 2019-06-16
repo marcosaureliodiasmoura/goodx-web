@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as ProjectsActions } from '../../store/ducks/projects';
@@ -9,6 +9,20 @@ import {
 } from './styles';
 
 class Projects extends Component {
+  static propTypes = {
+    getProjectsRequest: PropTypes.func.isRequired,
+    projects: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+          title: PropTypes.string,
+          description: PropTypes.string,
+          amountcollected: PropTypes.string,
+        }),
+      ),
+    }).isRequired,
+  };
+
   componentDidMount() {
     this.props.getProjectsRequest();
   }
@@ -18,41 +32,22 @@ class Projects extends Component {
       <Container>
         <Title>Lista de Projetos</Title>
         <List>
-          <Project to="">
-            <img
-              src="https://www.mensagenslindas.com.br/wp-content/uploads/2015/01/mundo-fica-mais-bonito.jpg"
-              alt="Goodx"
-            />
-            <strong>Unidos em uma só função</strong>
-            <p>A função é fazer o bem.</p>
-          </Project>
-
-          <Project to="">
-            <img
-              src="http://www.mensagens10.com.br/wp-content/uploads/2013/07/fazer-o-bem.jpg"
-              alt="Goox"
-            />
-            <strong>Unidos em uma só função</strong>
-            <p>A função é fazer o bem.</p>
-          </Project>
-
-          <Project to="">
-            <img
-              src="http://4.bp.blogspot.com/-w0X7dWp4RSA/Um7kpBUtSkI/AAAAAAAAAWE/9RlaMMR_ozc/s1600/tumblr_mouy62WhoQ1rbg2lzo1_400.jpg"
-              alt="Goodx"
-            />
-            <strong>Unidos em uma só função</strong>
-            <p>A função é fazer o bem.</p>
-          </Project>
-
-          <Project to="">
-            <img
-              src="http://www.mensagens10.com.br/wp-content/uploads/2013/09/plante-o-bem.jpg"
-              alt="Goodx"
-            />
-            <strong>Unidos em uma só função</strong>
-            <p>A função é fazer o bem.</p>
-          </Project>
+          {this.props.projects.data.map(project => (
+            <Project key={project.id} to={`/projects/${project.id}`}>
+              {/* <img src={project.thumbnail} alt={project.title} /> */}
+              <img
+                src="https://viajantehu.hotelurbano.com.br/wp-content/uploads/2017/12/recife.jpg"
+                alt="Goodx"
+              />
+              <strong>{project.title}</strong>
+              <p>{project.description}</p>
+              <p>
+                Meta R$:
+                {project.amountcollected}
+                ,00
+              </p>
+            </Project>
+          ))}
         </List>
       </Container>
     );

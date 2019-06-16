@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import api from '../../services/api-jsonserver';
+import api from '../../services/api';
 
 // Util para usarmos com o put para enviarmos a informação pro reducer.
 import { Creators as ProjectsActions } from '../ducks/projects';
