@@ -28,9 +28,18 @@ class Projects extends Component {
   }
 
   render() {
+    const projects = this.props.projects.data;
     return (
       <Container>
         <Title>Lista de Projetos</Title>
+        {!!projects && (
+        <p>
+          {projects.length}
+          {' '}
+projetos no Goodx
+        </p>
+        )}
+
         <List>
           {this.props.projects.data.map(project => (
             <Project key={project.id} to={`/projects/${project.id}`}>
