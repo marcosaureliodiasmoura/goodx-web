@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import SearchIcon from '../../assets/images/search.svg';
 
 export const Container = styled.header`
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,6 +13,7 @@ export const Container = styled.header`
 
   div {
     margin-left: 12px;
+    /* margin-left: 200px; */
     display: flex;
     flex-direction: column;
   }
@@ -30,6 +31,8 @@ export const Container = styled.header`
 `;
 
 export const Search = styled.div`
+  padding-left: 20px;
+
   display: flex;
   align-items: center;
   border-radius: 12px;
@@ -50,6 +53,7 @@ export const User = styled.div`
   display: flex;
   align-items: center;
   font-size: 13px;
+  margin: 10px 20px 0;
 
   img {
     width: 27px;

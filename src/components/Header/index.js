@@ -29,33 +29,3 @@ const Header = () => (
 );
 
 export default Header;
-
-// import {
-// eslint-disable-next-line import/named
-//   Container,
-//   Area1,
-//   Area2,
-//   Area3,
-// } from './styles';
-
-// const Header = () => (
-//   <Container>
-//     <Area1>
-//       <div>
-//         <span>Vamos mudar o mundo</span>
-//         <small>Goodx</small>
-//       </div>
-//     </Area1>
-//     <Area2>
-//       <Area3>
-//         <span>Boas ações: </span>
-//         <small>35</small>
-//       </Area3>
-//       <Area3>
-//         <span>Valor doado: </span>
-//         <small>R$ 5000,00</small>
-//       </Area3>
-//     </Area2>
-//     <Area2 />
-//   </Container>
-// );
