@@ -1,46 +1,42 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-import api from "../../services/api";
+import api from '../../services/api';
 
-import Logo from "../../assets/goodx_logo.png";
-import { Form, Container } from "./styles";
+import Logo from '../../assets/goodx_logo.png';
+import { Form, Container } from './styles';
 
 class SignUp extends Component {
   state = {
-    name: "",
-    surname: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-    error: ""
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    error: '',
   };
 
-  handleSignUp = async e => {
+  handleSignUp = async (e) => {
     e.preventDefault();
     const {
-      name,
-      surname,
-      email,
-      password,
-      password_confirmation
+      name, surname, email, password, password_confirmation,
     } = this.state;
 
     if (!name || !surname || !email || !password || !password_confirmation) {
-      this.setState({ error: "Preencha todos os dados para se cadastrar" });
+      this.setState({ error: 'Preencha todos os dados para se cadastrar' });
     } else {
       try {
-        await api.post("/users", {
+        await api.post('/users', {
           name,
           surname,
           email,
           password,
-          password_confirmation
+          password_confirmation,
         });
-        this.props.history.push("/");
+        this.props.history.push('/');
       } catch (err) {
         console.log(err);
-        this.setState({ error: "Ocorreu um erro ao registrar sua conta" });
+        this.setState({ error: 'Ocorreu um erro ao registrar sua conta' });
       }
     }
   };
@@ -74,13 +70,11 @@ class SignUp extends Component {
           <input
             type="password"
             placeholder="Informe novamente a senha"
-            onChange={e =>
-              this.setState({ password_confirmation: e.target.value })
-            }
+            onChange={e => this.setState({ password_confirmation: e.target.value })}
           />
           <button type="submit">Cadastrar grátis</button>
           <hr />
-          <Link to="/">Fazer login</Link>
+          <Link to="/signin">Fazer login</Link>
         </Form>
       </Container>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Projects = () => <h1>Quero a sidebar aqui aaa</h1>;
+const Projects = () => <h1>Ta se realizando, omgggggg </h1>;
 
 export default Projects;

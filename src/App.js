@@ -1,16 +1,27 @@
 import React, { Fragment } from 'react';
-import { Provider } from 'react-redux';
-import Routes from './routes';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './routes/routes';
 import GlobalStyle from './styles/global';
 
-import store from './store';
+import { Wrapper } from './styles/components';
+
+// const App = () => (
+//   <Provider store={store}>
+//     <Fragment>
+//       <GlobalStyle />
+//       <Routes />
+//     </Fragment>
+//   </Provider>
+// );
 
 const App = () => (
-  <Provider store={store}>
-    <Fragment>
+  <BrowserRouter>
+    <Wrapper>
       <GlobalStyle />
       <Routes />
-    </Fragment>
-  </Provider>
+    </Wrapper>
+  </BrowserRouter>
 );
+
 export default App;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -16,7 +16,7 @@ html, body, #root {
 body{
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  background: #7b1fa2;
+  background: #283593;;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
