@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Nav } from './styles';
 
@@ -24,7 +25,7 @@ const Sidebar = () => (
           <span>Buscar Projetos</span>
         </li>
         <li>
-          <a href="">Por região</a>
+          <Link to="/projects">Por região</Link>
         </li>
         <li>
           <a href="">Projeto Mundo</a>
