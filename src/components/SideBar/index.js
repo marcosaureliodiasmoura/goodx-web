@@ -9,7 +9,7 @@ const Sidebar = () => (
     <div>
       <Nav main>
         <li>
-          <a href="/dashboard">Goodx</a>
+          <a href="/">Goodx</a>
         </li>
 
         <li>
