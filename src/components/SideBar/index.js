@@ -17,7 +17,7 @@ const Sidebar = () => (
         </li>
 
         <li>
-          <a href="">Criar Projeto</a>
+          <Link to="/createproject">Criar Projeto</Link>
         </li>
       </Nav>
       <Nav>

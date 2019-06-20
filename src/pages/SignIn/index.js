@@ -1,36 +1,35 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-import Logo from "../../assets/goodx_logo.png";
-import api from "../../services/api";
-import { login } from "../../services/auth";
+import Logo from '../../assets/goodx_logo.png';
+import api from '../../services/api';
+import { login } from '../../services/auth';
 
-import { Form, Container } from "./styles";
+import { Form, Container } from './styles';
 
 class SignIn extends Component {
   state = {
-    email: "",
-    password: "",
-    error: ""
+    email: '',
+    password: '',
+    error: '',
   };
 
-  handleSignIn = async e => {
+  handleSignIn = async (e) => {
     e.preventDefault();
 
     const { email, password } = this.state;
     if (!email || !password) {
       this.setState({
-        error: "Preencha os campos corretamente para continuar!"
+        error: 'Preencha os campos corretamente para continuar!',
       });
     } else {
       try {
-        const response = await api.post("/sessions", { email, password });
+        const response = await api.post('/sessions', { email, password });
         login(response.data.token);
-        this.props.history.push("/app");
+        this.props.history.push('/');
       } catch (err) {
         this.setState({
-          error:
-            "Houve um problema com o seu login, verifique os dados inseridos"
+          error: 'Houve um problema com o seu login, verifique os dados inseridos',
         });
       }
     }
