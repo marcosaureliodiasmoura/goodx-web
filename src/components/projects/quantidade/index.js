@@ -15,7 +15,7 @@ class Quantidade extends Component {
           id: PropTypes.number,
           title: PropTypes.string,
           description: PropTypes.string,
-          amountcollected: PropTypes.string,
+          amountcollected: PropTypes.number,
         }),
       ),
     }).isRequired,

@@ -13,7 +13,7 @@ const Sidebar = () => (
         </li>
 
         <li>
-          <a href="">Doar</a>
+          <Link to="/donate">Doar</Link>
         </li>
 
         <li>

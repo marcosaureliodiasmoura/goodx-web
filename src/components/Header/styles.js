@@ -79,3 +79,24 @@ export const Container2 = styled.div`
     margin-top: 5px;
   }
 `;
+
+export const Logout = styled.a`
+  font-size: 14px;
+  cursor: pointer;
+  color: #000;
+  border: 1px solid #f1f1f1;
+  text-align: center;
+  align-self: center;
+  padding: 5px 20px;
+  margin-right: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+
+  img {
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+`;

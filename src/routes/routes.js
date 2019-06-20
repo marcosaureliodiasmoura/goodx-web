@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import Projects from '../pages/Projects';
 import CreateProject from '../pages/CreateProject';
+import Donate from '../pages/Donate';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
@@ -17,6 +18,7 @@ const Routes = () => (
       <PrivateRoute exact path="/" component={Dashboard} />
       <PrivateRoute exact path="/projects" component={Projects} />
       <PrivateRoute path="/createproject" component={CreateProject} />
+      <PrivateRoute path="/donate" component={Donate} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
