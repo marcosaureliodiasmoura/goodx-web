@@ -18,6 +18,8 @@ export const List = styled.div`
   display: flex;
 `;
 
+export const ContagemProjects = styled.h1``;
+
 export const Project = styled(Link)`
   display: flex;
   flex-direction: column;

@@ -3,6 +3,8 @@ import {
   Container, Search, User, Container2,
 } from './styles';
 
+import Quantidade from '../projects/quantidade';
+
 const Header = () => (
   <Container>
     <Search>
@@ -14,7 +16,7 @@ const Header = () => (
       <span>R$ 5000,00</span>
     </div>
     <Container2>
-      <span>19 </span>
+      <Quantidade />
       <small>Boas ações</small>
     </Container2>
 

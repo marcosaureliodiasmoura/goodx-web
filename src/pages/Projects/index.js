@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Creators as ProjectsActions } from '../../store/ducks/projects';
 
 import {
-  Container, Title, List, Project,
+  Container, Title, List, Project, ContagemProjects,
 } from './styles';
 
 class Projects extends Component {
