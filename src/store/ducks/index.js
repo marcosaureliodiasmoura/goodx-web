@@ -4,8 +4,10 @@
 import { combineReducers } from 'redux';
 import projects from './projects';
 import users from './users';
+import donations from './donations';
 
 export default combineReducers({
   projects,
   users,
+  donations,
 });

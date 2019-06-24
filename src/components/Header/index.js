@@ -3,7 +3,9 @@ import {
   Container, Search, User, Container2, Logout,
 } from './styles';
 
-import AmountProjects from '../projects/amount';
+// import AmountProjects from '../projects/amount';
+import AmountDonates from '../donates/amount';
+import CalculateDonates from '../donates/calculation';
 
 function handleLogout() {
   localStorage.removeItem('@meu-Token');
@@ -18,11 +20,17 @@ const Header = () => (
     </Search>
     <div>
       <small>Total de Doações: </small>
-      <span>R$ 5000,00</span>
+      <span>
+        R$:
+        {' '}
+        <CalculateDonates />
+      </span>
     </div>
     <Container2>
-      <AmountProjects />
-      <small>Boas ações</small>
+      <span>
+        <AmountDonates />
+      </span>
+      <span>Boas ações</span>
     </Container2>
     <User>
       <img

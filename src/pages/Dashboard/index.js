@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Box } from './styles';
 import AmountProjects from '../../components/projects/amount';
 import AmountUsers from '../../components/users/amount';
+import CalculateDonates from '../../components/donates/calculation';
 
 const Dashboard = () => (
   <Container>
@@ -19,7 +20,11 @@ Projetos no Goodx.
       <br />
       <div>
         <small>Total de Doações: </small>
-        <span>R$: 25.000.000,00</span>
+        <span>
+          R$:
+          {' '}
+          <CalculateDonates />
+        </span>
       </div>
       <br />
 
