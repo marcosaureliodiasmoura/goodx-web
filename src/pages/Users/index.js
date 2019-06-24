@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as UsersActions } from '../../store/ducks/users';
 
-import { Container } from './styles';
+import {
+  Container, Title, List, User,
+} from './styles';
 
 class Users extends Component {
   static propTypes = {
@@ -26,9 +28,34 @@ class Users extends Component {
   }
 
   render() {
+    const users = this.props.users.data;
     return (
       <Container>
-        <h1>Lista de Usuários</h1>
+        <Title>Lista de Usuários</Title>
+        {!!users && (
+        <p>
+          {users.length}
+          {' '}
+usuários no Goodx
+        </p>
+        )}
+
+        <List>
+          {this.props.users.data.map(user => (
+            <User key={user.id} to="/users/">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMS8Uh64P4hJcHp8i-2XFArZeCTMw-osDKKG9DIUA3qnZugrbx"
+                alt="Goodx"
+              />
+              <strong>
+                {user.name}
+                {' '}
+                {user.surname}
+              </strong>
+              <p>{user.email}</p>
+            </User>
+          ))}
+        </List>
       </Container>
     );
   }
