@@ -34,7 +34,7 @@ const Sidebar = () => (
           <a href="">Nas ruas</a>
         </li>
         <li>
-          <a href="">Artistas</a>
+          <Link to="/users">Usuários do Goodx</Link>
         </li>
       </Nav>
       <Nav>

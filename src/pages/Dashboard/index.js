@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Container, Box } from './styles';
-import Quantidade from '../../components/projects/quantidade';
+import AmountProjects from '../../components/projects/amount';
+import AmountUsers from '../../components/users/amount';
 
 const Dashboard = () => (
   <Container>
@@ -10,7 +11,7 @@ const Dashboard = () => (
       <div>
         <small>Quantidade de Projetos: </small>
         <span>
-          <Quantidade />
+          <AmountProjects />
           {' '}
 Projetos no Goodx.
         </span>
@@ -24,7 +25,12 @@ Projetos no Goodx.
 
       <div>
         <small>Quantidade de Usuários: </small>
-        <span>15.000 usuários no geral. </span>
+        <span>
+          {' '}
+          <AmountUsers />
+          {' '}
+Usuários no Goodx.
+        </span>
       </div>
       <br />
       <div>

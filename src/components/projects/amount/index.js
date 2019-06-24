@@ -6,7 +6,7 @@ import { Creators as ProjectsActions } from '../../../store/ducks/projects';
 
 import { Estilo } from './styles';
 
-class Quantidade extends Component {
+class AmountProjects extends Component {
   static propTypes = {
     getProjectsRequest: PropTypes.func.isRequired,
     projects: PropTypes.shape({
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(ProjectsActions, dispa
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Quantidade);
+)(AmountProjects);

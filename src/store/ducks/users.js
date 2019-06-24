@@ -1,6 +1,6 @@
 export const Types = {
-  GET_REQUEST: '/users/GET_REQUEST',
-  GET_SUCCESS: '/users/GET_SUCCESS',
+  GET_REQUEST: 'users/GET_REQUEST',
+  GET_SUCCESS: 'users/GET_SUCCESS',
 };
 
 const INITIAL_STATE = {
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 };
 
 export default function users(state = INITIAL_STATE, action) {
-  switch (action.tye) {
+  switch (action.type) {
     case Types.GET_REQUEST:
       return { ...state, loading: true };
     case Types.GET_SUCCESS:

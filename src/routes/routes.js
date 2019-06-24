@@ -7,6 +7,7 @@ import Dashboard from '../pages/Dashboard';
 import Projects from '../pages/Projects';
 import CreateProject from '../pages/CreateProject';
 import Donate from '../pages/Donate';
+import Users from '../pages/Users';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
@@ -19,6 +20,7 @@ const Routes = () => (
       <PrivateRoute exact path="/projects" component={Projects} />
       <PrivateRoute path="/createproject" component={CreateProject} />
       <PrivateRoute path="/donate" component={Donate} />
+      <PrivateRoute path="/users" component={Users} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="*" component={() => <h1>Page not found</h1>} />

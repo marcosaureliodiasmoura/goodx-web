@@ -3,7 +3,7 @@ import {
   Container, Search, User, Container2, Logout,
 } from './styles';
 
-import Quantidade from '../projects/quantidade';
+import AmountProjects from '../projects/amount';
 
 function handleLogout() {
   localStorage.removeItem('@meu-Token');
@@ -21,7 +21,7 @@ const Header = () => (
       <span>R$ 5000,00</span>
     </div>
     <Container2>
-      <Quantidade />
+      <AmountProjects />
       <small>Boas ações</small>
     </Container2>
     <User>
