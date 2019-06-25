@@ -9,6 +9,16 @@ export const Container = styled.div`
   margin-left: 300px;
 `;
 
+export const Button = styled.button`
+  color: #fff;
+  font-size: 16px;
+  background: #fc6963;
+  height: 56px;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+`;
+
 export const Item = styled.div``;
 export const ItemList = styled.div``;
 

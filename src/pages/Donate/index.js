@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import api from '../../services/api';
+import { Creators as ProjectsDetailsActions } from '../../store/ducks/projectsDetails';
 
 import { Form, Container } from './styles';
 
 class Donate extends Component {
   state = {
-    project_id: '',
     amountdonate: '',
     error: '',
   };
 
+  componentDidMount() {
+    this.loadProjectsDetails();
+  }
+
+  loadProjectsDetails = () => {
+    const { id } = this.props.match.params;
+
+    this.props.getProjectsDetailsRequest(id);
+  };
+
   handleDonate = async (e) => {
     e.preventDefault();
-    const { project_id, amountdonate } = this.state;
+    const { amountdonate } = this.state;
 
-    if (!project_id || !amountdonate) {
+    const project = this.props.projectsDetails.data;
+
+    if (!amountdonate) {
       this.setState({ error: 'Preencha os campos abaixo para realizar doação' });
     } else {
       try {
-        await api.post('/donations', {
-          project_id,
+        await api.post(`/projects/${project.id}/donations`, {
           amountdonate,
         });
         this.history.pushState('/');
@@ -32,15 +45,14 @@ class Donate extends Component {
   };
 
   render() {
+    const project = this.props.projectsDetails.data;
+
     return (
       <Container>
         <Form onSubmit={this.handleDonate}>
           {this.state.error && <p>{this.state.error}</p>}
-          <input
-            type="text"
-            placeholder="Projeto a doar"
-            onChange={e => this.setState({ project_id: e.target.value })}
-          />
+
+          <p>{project.id}</p>
           <input
             type="number"
             placeholder="Valor da doação"
@@ -53,4 +65,13 @@ class Donate extends Component {
   }
 }
 
-export default Donate;
+const mapStateToProps = state => ({
+  projectsDetails: state.projectsDetails,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(ProjectsDetailsActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Donate);

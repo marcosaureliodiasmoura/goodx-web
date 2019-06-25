@@ -20,7 +20,7 @@ const Routes = () => (
       <PrivateRoute exact path="/" component={Dashboard} />
       <PrivateRoute exact path="/projects" component={Projects} />
       <PrivateRoute path="/createproject" component={CreateProject} />
-      <PrivateRoute path="/donate" component={Donate} />
+      <PrivateRoute path="/projects/:id/donations" component={Donate} />
       <PrivateRoute path="/users" component={Users} />
       <PrivateRoute path="/projects/:id" component={ProjectsDetails} />
       <Route path="/signin" component={SignIn} />

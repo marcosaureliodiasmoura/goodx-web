@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as ProjectsDetailsActions } from '../../store/ducks/projectsDetails';
 
-import { Container, Box } from './styles';
+import { Container, Box, Button } from './styles';
 // Realizando teste para trazer as doações deste relacionamento
 
 class ProjectsDetails extends Component {
@@ -23,11 +25,14 @@ class ProjectsDetails extends Component {
 
   render() {
     const project = this.props.projectsDetails.data;
-   
+    const { id } = this.props.match.params;
+    // const { user_id } = this.props.projectsDetails.data;
+
     return (
       <Container>
         <Box>
-       
+          {/* {console.log(this.props.match.params)} */}
+          <p>{id}</p>
           <p>{project.title}</p>
           <span>Descrição</span>
           <small>{project.description}</small>
@@ -85,6 +90,10 @@ doações.
               ))
             )}
           </span> */}
+          <br />
+          <Link to={`/projects/${project.id}/donations`}>
+            <Button>Doar</Button>
+          </Link>
         </Box>
       </Container>
     );
@@ -93,7 +102,7 @@ doações.
 
 const mapStateToProps = state => ({
   projectsDetails: state.projectsDetails,
-  user: state.projectsDetails.data.user,
+  // user: state.projectsDetails.data.user,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(ProjectsDetailsActions, dispatch);
