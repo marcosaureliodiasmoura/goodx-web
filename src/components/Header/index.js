@@ -3,7 +3,6 @@ import {
   Container, Search, User, Container2, Logout,
 } from './styles';
 
-// import AmountProjects from '../projects/amount';
 import AmountDonates from '../donates/amount';
 import CalculateDonates from '../donates/calculation';
 
