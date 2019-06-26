@@ -36,7 +36,7 @@ class Donate extends Component {
         await api.post(`/projects/${project.id}/donations`, {
           amountdonate,
         });
-        this.history.pushState('/');
+        this.props.history.push(`/projects/${project.id}`);
       } catch (err) {
         console.log(err);
         this.setState({ error: 'Erro ao realizar doação' });

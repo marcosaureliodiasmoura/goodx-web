@@ -6,7 +6,7 @@ export const Types = {
 
 const INITIAL_STATE = {
   // O data será um objeto, retornando apenas um projeto.
-  data: {},
+  data: [],
   loading: false,
 };
 
@@ -14,9 +14,13 @@ const INITIAL_STATE = {
 export default function projectsDetails(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.GET_REQUEST:
-      return { ...state, loading: true };
+      return {
+        ...state,
+        loading: true,
+      };
     case Types.GET_SUCCESS:
       return { ...state, loading: false, data: action.payload.data };
+
     default:
       return state;
   }

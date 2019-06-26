@@ -1,38 +1,53 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as ProjectsDetailsActions } from '../../store/ducks/projectsDetails';
 
-import { Container, Box, Button } from './styles';
-// Realizando teste para trazer as doações deste relacionamento
+import {
+  Container, Box, Button, Box3,
+} from './styles';
 
 class ProjectsDetails extends Component {
+  // static propTypes = {
+  //   match: PropTypes.shape({
+  //     params: PropTypes.shape({
+  //       id: PropTypes.string,
+  //     }),
+  //   }).isRequired,
+  //   projectsDetails: PropTypes.shape({
+  //     data: PropTypes.shape({
+  //       title: PropTypes.string,
+  //     }),
+  //     user: PropTypes.shape({
+  //       name: PropTypes.string,
+  //     }),
+  //   }).isRequired,
+  // };
+
   componentDidMount() {
     this.loadProjectsDetails();
   }
 
   loadProjectsDetails = () => {
-    // Todos os parametros que são enviados pelo react-router,
-    // Eles ficam dentro do match.params do this.props da nossa página
-    // Esse id fica no routes projets/:id
     const { id } = this.props.match.params;
 
     this.props.getProjectsDetailsRequest(id);
   };
 
   render() {
+    if (this.props.projectsDetails.loading) {
+      return <p>Carregando...</p>;
+    }
+
     const project = this.props.projectsDetails.data;
-    const { id } = this.props.match.params;
-    // const { user_id } = this.props.projectsDetails.data;
 
     return (
       <Container>
         <Box>
-          {/* {console.log(this.props.match.params)} */}
-          <p>{id}</p>
           <p>{project.title}</p>
           <span>Descrição</span>
           <small>{project.description}</small>
@@ -55,46 +70,70 @@ doações.
           </small>
           )}
           <br />
+          <small> Estado, País e Região do projeto:</small>
+          <small>A fazer</small>
+
+          <br />
+          <Link to={`/projects/${project.id}/donations`}>
+            {' '}
+            <Button>Doar</Button>
+            {' '}
+          </Link>
+
+          <small>Criado por:</small>
+          {!!project.user && (
+            <small>
+              {project.user.name}
+              {' '}
+              {project.user.surname}
+              <br />
+              <br />
+              <small>E-mail:</small>
+              {'  '}
+              <br />
+              <small>{project.user.email}</small>
+            </small>
+          )}
+          <br />
+          <small>
+            {' '}
+            Estado do criador do projeto:
+            {'  '}
+            {' '}
+A fazer
+          </small>
+        </Box>
+
+        <Box3>
           {' '}
           <span>Quantias doadas:</span>
+          {' '}
           <br />
-          <tbody>
-            {!project.user ? (
-              <tr>
-                <td colSpan={5}>Nenhuma doação registrada ainda.</td>
-              </tr>
+          <ul>
+            {!project.donations ? (
+              <ul>
+                <small colSpan={1}>0 doações.</small>
+              </ul>
             ) : (
               project.donations.map(donation => (
-                <tr key={donation.id}>
-                  <td>
+                <ul key={donation.id}>
+                  <p>
                     R$:
                     {' '}
                     {donation.amountdonate}
                     ,00
-                  </td>
-                </tr>
+                  </p>
+                </ul>
               ))
             )}
-          </tbody>
+          </ul>
           <br />
-          <span>Id do responsável: </span>
-          <span>{project.user_id}</span>
-          {/* <span>
-            {!project.users ? (
-              <td colSpan={5}>Nenhuma usuário.</td>
-            ) : (
-              project.user.map(user => (
-                <tr key={user.id}>
-                  <td>{user.name}</td>
-                </tr>
-              ))
-            )}
-          </span> */}
+          <small> Total arrecadado:</small>
+          <small>A fazer</small>
           <br />
-          <Link to={`/projects/${project.id}/donations`}>
-            <Button>Doar</Button>
-          </Link>
-        </Box>
+          <small> Restante:</small>
+          <small>A fazer</small>
+        </Box3>
       </Container>
     );
   }
@@ -102,7 +141,6 @@ doações.
 
 const mapStateToProps = state => ({
   projectsDetails: state.projectsDetails,
-  // user: state.projectsDetails.data.user,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(ProjectsDetailsActions, dispatch);

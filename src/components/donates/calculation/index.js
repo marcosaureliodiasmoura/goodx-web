@@ -31,7 +31,7 @@ class CalculateDonates extends Component {
         {/* {console.log(this.props.donations.data)} */}
         {/* <span>{donations.length}</span> */}
         <span>{this.props.total}</span>
-        {console.log(this.props)}
+        {/* {console.log(this.props)} */}
         {' '}
       </span>
     );

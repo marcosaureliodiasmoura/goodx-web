@@ -1,22 +1,26 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "title": "Mudando o mundo",
-      "description": "De Recife para o mundo!!",
-      "thumbnail": "https://viajantehu.hotelurbano.com.br/wp-content/uploads/2017/12/recife.jpg"
-    },
-    {
-      "id": 2,
-      "title": "Lets go ha",
-      "description": "Vamos to Dance.",
-      "thumbnail": "https://s3-sa-east-1.amazonaws.com/gonative/foo_fighters.jpg"
-    },
-    {
+  "data": {
+    "id": 1,
+    "title": "bailando",
+    "amountcollected": 500,
+    "user": {
       "id": 3,
-      "title": "Desabrigados pela Água",
-      "description": "Ajudar a quem não tem o que esperar <3",
-      "thumbnail": "https://cdn1.campograndenews.com.br/uploads/tmp/images/5260383/640x480-ba5167cf1c3fc2fbe2cfa950ffd96ebd.jpg"
-    }
-  ]
+      "nome": "maria"
+    },
+    "donations": [
+      {
+        "id": 11,
+        "project_id": 1,
+        "user_id": 5,
+        "amountdonate": 1000
+      },
+
+      {
+        "id": 4,
+        "project_id": 3,
+        "user_id": 5,
+        "amountdonate": 1000
+      }
+    ]
+  }
 }

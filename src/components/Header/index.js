@@ -10,7 +10,7 @@ function handleLogout() {
   localStorage.removeItem('@meu-Token');
 }
 
-console.log(localStorage.getItem('@meu-Token'));
+// console.log(localStorage.getItem('@meu-Token'));
 
 const Header = () => (
   <Container>

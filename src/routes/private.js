@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 import Header from '../components/Header';
 import SideBar from '../components/SideBar';
+import ErrorBox from '../components/ErrorBox';
 
 import { isAuthenticated } from '../services/auth';
 
@@ -16,6 +17,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <Header />
         <ContainerOutside>
           <SideBar />
+          <ErrorBox />
           <Component {...props} />
         </ContainerOutside>
       </>
